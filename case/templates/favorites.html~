@@ -1,0 +1,17 @@
+<!-- favorites.html -->
+
+{% extends 'base.html' %}
+{% block content %}
+<h2>Избранные продукты</h2>
+<div class="favorites-gallery">
+    {% for favorite in favorites %}
+        <div class="product">
+            <img src="{{ favorite.product.image.url }}" alt="{{ favorite.product.name }}">
+            <h3>{{ favorite.product.name }}</h3>
+            <p>Цена: {{ favorite.product.price }} тг.</p>
+        </div>
+    {% empty %}
+        <p>У вас пока нет избранных продуктов.</p>
+    {% endfor %}
+</div>
+{% endblock %}
